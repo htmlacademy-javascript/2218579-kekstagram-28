@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Евгений Андреев](https://up.htmlacademy.ru/javascript/28/user/2218579).
-* Наставник: `Неизвестно`.
+* Наставник: [Павел Нюкало](https://htmlacademy.ru/profile/nyukalopavel).
 
 ---
 
