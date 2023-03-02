@@ -51,6 +51,8 @@ const getRandomInteger = (min, max) => {
   return Math.floor(result);
 };
 
+const getRandomArrayElement = (elements) => elements[getRandomInteger(0, elements.length - 1)];
+
 const createRandomIdFromRangeGenerator = (min, max) => {
   const previousValues = [];
 
@@ -72,14 +74,14 @@ createRandomIdFromRangeGenerator();
 const creatComment = () => ({
   id: generateCommentId(),
   avatar: `img/avatar-${getRandomInteger(0, AVATARS)}.svg`,
-  message: MESSAGES[getRandomInteger(0, NAMAS.length - 1)],
-  name: NAMAS[getRandomInteger(0, NAMAS.length - 1)],
+  message: getRandomArrayElement(MESSAGES),
+  name: getRandomArrayElement(NAMAS),
 });
 
 const describePhoto = () => ({
   id: getRandomInteger(0, IDS),
   url: `photos/${getRandomInteger(0, URLS)}.jpg`,
-  description: DESCRIPTIONS[getRandomInteger(0, DESCRIPTIONS.length - 1)],
+  description: getRandomArrayElement(DESCRIPTIONS),
   likes: getRandomInteger(LIKE_MIN_COUNT, LIKE_MAX_COUNT),
   comments: creatComment(),
 });
