@@ -1,6 +1,9 @@
-const IDS = 25;
-const URLS = 25;
-const AVATARS = 6;
+const MIN_ID = 1;
+const MAX_ID = 25;
+const MIN_URL = 1;
+const MAX_URL = 25;
+const MIN_COUNT_AVATAR = 1;
+const MAX_COUNT_AVATAR = 6;
 const LIKE_MIN_COUNT = 15;
 const LIKE_MAX_COUNT = 200;
 const PHOTO_COUNT = 25;
@@ -69,18 +72,19 @@ const createRandomIdFromRangeGenerator = (min, max) => {
   };
 };
 
-createRandomIdFromRangeGenerator();
+const generatePhotoId = createRandomIdFromRangeGenerator(MIN_ID, MAX_ID);
+const generatePhotoUrl = createRandomIdFromRangeGenerator(MIN_URL, MAX_URL);
 
 const creatComment = () => ({
   id: generateCommentId(),
-  avatar: `img/avatar-${getRandomInteger(0, AVATARS)}.svg`,
+  avatar: `img/avatar-${getRandomInteger(MIN_COUNT_AVATAR, MAX_COUNT_AVATAR)}.svg`,
   message: getRandomArrayElement(MESSAGES),
   name: getRandomArrayElement(NAMAS),
 });
 
 const describePhoto = () => ({
-  id: getRandomInteger(0, IDS),
-  url: `photos/${getRandomInteger(0, URLS)}.jpg`,
+  id: generatePhotoId(MIN_ID, MAX_ID),
+  url: `photos/${generatePhotoUrl(MIN_URL, MAX_URL)}.jpg`,
   description: getRandomArrayElement(DESCRIPTIONS),
   likes: getRandomInteger(LIKE_MIN_COUNT, LIKE_MAX_COUNT),
   comments: creatComment(),
