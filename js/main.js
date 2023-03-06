@@ -83,8 +83,8 @@ const creatComment = () => ({
 });
 
 const describePhoto = () => ({
-  id: generatePhotoId(MIN_ID, MAX_ID),
-  url: `photos/${generatePhotoUrl(MIN_URL, MAX_URL)}.jpg`,
+  id: generatePhotoId(),
+  url: `photos/${generatePhotoUrl()}.jpg`,
   description: getRandomArrayElement(DESCRIPTIONS),
   likes: getRandomInteger(LIKE_MIN_COUNT, LIKE_MAX_COUNT),
   comments: creatComment(),
