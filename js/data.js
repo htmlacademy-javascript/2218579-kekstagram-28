@@ -9,6 +9,8 @@ const MAX_COUNT_AVATAR = 6;
 const LIKE_MIN_COUNT = 15;
 const LIKE_MAX_COUNT = 200;
 const PHOTO_COUNT = 25;
+const COMMENT_COUNT_MIN = 1;
+const COMMENT_COUNT_MAX = 15;
 
 const DESCRIPTIONS = [
   'Я и море...',
@@ -54,7 +56,8 @@ const describePhoto = () => ({
   url: `photos/${generatePhotoUrl()}.jpg`,
   description: getRandomArrayElement(DESCRIPTIONS),
   likes: getRandomInteger(LIKE_MIN_COUNT, LIKE_MAX_COUNT),
-  comments: creatComment(),
+  comments: Array.from({length: getRandomInteger(COMMENT_COUNT_MIN, COMMENT_COUNT_MAX)
+  }, creatComment),
 });
 
 const getDescribePhoto = () => Array.from({length: PHOTO_COUNT}, describePhoto);
