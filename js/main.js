@@ -1,3 +1,5 @@
 import {getDescribePhoto} from './data.js';
+import {renderThumbnails} from './thumbnail.js';
 
-getDescribePhoto();
+const userPictures = getDescribePhoto();
+renderThumbnails(userPictures);
