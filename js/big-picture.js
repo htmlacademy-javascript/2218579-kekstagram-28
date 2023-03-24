@@ -6,15 +6,13 @@ const commentList = document.querySelector('.social__comments');
 const commentsLoader = document.querySelector('.comments-loader');
 const body = document.querySelector('body');
 const cancelButton = document.querySelector('.big-picture__cancel');
+const searchComment = document.querySelector('.social__comment');
 
 let commentsShown = 0;
 let comments = [];
 
 const createComment = ({avatar, name, message}) => {
-  const comment = document.createElement('li');
-  comment.innerHTML =
-    '<img class="social__picture" src="" alt="" width="35" height="35">';
-  comment.classList.add('social__comment');
+  const comment = searchComment.cloneNode(true);
 
   comment.querySelector('.social__picture').src = avatar;
   comment.querySelector('.social__picture').alt = name;
