@@ -23,6 +23,7 @@ const createComment = ({avatar, name, message}) => {
 };
 
 const renderComments = () => {
+  commentList.innerHTML = '';
   commentsShown += COMMENTS_PER_PORTION;
 
   if (commentsShown >= comments.length) {
@@ -37,7 +38,6 @@ const renderComments = () => {
     const commentElement = createComment(comments[i]);
     fragment.append(commentElement);
 
-    commentList.innerHTML = '';
     commentList.append(fragment);
     commentCount.innerHTML =
       `${commentsShown} из <span class="comments-count">${comments.length}</span> комментариев`;
