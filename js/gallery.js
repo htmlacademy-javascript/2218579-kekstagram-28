@@ -11,7 +11,7 @@ const renderGallery = (pictures) => {
     }
 
     const picture = pictures.find(
-      (item) => item.id === +thumbnail.dataset.thumbnailId);
+      (item) => item.id === Number(thumbnail.dataset.thumbnailId));
     showBigPicture(picture);
   });
 
