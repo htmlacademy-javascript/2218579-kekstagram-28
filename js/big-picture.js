@@ -36,12 +36,12 @@ const renderComments = () => {
   for (let i = 0; i < commentsShown; i++) {
     const commentElement = createComment(comments[i]);
     fragment.append(commentElement);
-
-    commentCount.innerHTML =
-    `${commentsShown} из <span class="comments-count">${comments.length}</span> комментариев`;
   }
+
   commentList.innerHTML = '';
   commentList.append(fragment);
+  commentCount.innerHTML =
+    `${commentsShown} из <span class="comments-count">${comments.length}</span> комментариев`;
 };
 
 const hideBigPicture = () => {
