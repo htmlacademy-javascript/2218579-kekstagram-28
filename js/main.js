@@ -1,5 +1,5 @@
 import {getDescribePhoto} from './data.js';
-import {renderThumbnails} from './thumbnail.js';
+import {renderGallery} from './gallery.js';
 
 const userPictures = getDescribePhoto();
-renderThumbnails(userPictures);
+renderGallery(userPictures);
