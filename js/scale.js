@@ -28,6 +28,7 @@ const onBiggerButtonClick = () => {
   if (newValue > MAX_SCALE) {
     newValue = MAX_SCALE;
   }
+  scaleImage(newValue);
 };
 
 const resetScale = () => scaleImage(DEFAULT_SCALE);
