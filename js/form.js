@@ -44,7 +44,7 @@ function onDocumentKeydown(evt) {
     evt.preventDefault();
     hideModal();
   }
-};
+}
 
 const onCancelButtonClick = () => {
   hideModal();
