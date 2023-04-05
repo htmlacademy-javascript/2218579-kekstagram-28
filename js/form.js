@@ -3,7 +3,7 @@ import {resetEffects} from './effect.js';
 
 const MAX_HASHTAG_COUNT = 5;
 const VALID_SYMBOL = /^#[a-zа-яё0-9]{1,19}$/i;
-const TAG_ERROR_TEXT = 'Неправильно заполнены хештеги';
+const TAG_ERROR_TEXT = 'Не более 5 хештегов, Хештеги не должны повторяться, Хештег должен начинаться с #, содержать символы и/или цифры и не более 20 символов';
 
 const form = document.querySelector('.img-upload__form');
 const overlay = document.querySelector('.img-upload__overlay');
