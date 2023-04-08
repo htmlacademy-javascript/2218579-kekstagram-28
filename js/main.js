@@ -4,3 +4,4 @@ import './form.js';
 
 const userPictures = getDescribePhoto();
 renderGallery(userPictures);
+
