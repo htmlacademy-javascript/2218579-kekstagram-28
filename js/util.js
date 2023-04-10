@@ -56,4 +56,12 @@ const showAlert = (message) => {
   }, ALERT_SHOW_TIME);
 };
 
-export {createIdGenerator, getRandomInteger, createRandomIdFromRangeGenerator, showAlert, isEscapeKey};
+const debounce = (callback, timeoutDelay) => {
+  let timeoutId;
+  return (...rest) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => callback.apply(this, rest), timeoutDelay);
+  };
+};
+
+export {createIdGenerator, getRandomInteger, createRandomIdFromRangeGenerator, showAlert, isEscapeKey, debounce};
