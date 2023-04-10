@@ -1,7 +1,18 @@
-import {getDescribePhoto} from './data.js';
 import {renderGallery} from './gallery.js';
-import './form.js';
+import {setUserFormSubmit, hideModal} from './form.js';
+import {showAlert} from './util.js';
+import {getData} from './api.js';
 
-const userPictures = getDescribePhoto();
-renderGallery(userPictures);
+
+getData()
+  .then((pictures) => {
+    renderGallery(pictures);
+  })
+  .catch(
+    (err) => {
+      showAlert(err.message);
+    }
+  );
+
+setUserFormSubmit(hideModal);
 
