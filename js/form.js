@@ -46,7 +46,7 @@ const isTextFieldFocused = () =>
   document.activeElement === commentField;
 
 function onDocumentKeydown(evt) {
-  if (isEscapeKey(evt) && !isTextFieldFocused() && !getMessageType) {
+  if (isEscapeKey(evt) && !isTextFieldFocused() && !getMessageType()) {
     evt.preventDefault();
     hideModal();
   }
