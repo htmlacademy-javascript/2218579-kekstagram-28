@@ -3,6 +3,7 @@ import {setUserFormSubmit, hideModal} from './form.js';
 import {showAlert} from './util.js';
 import {getData} from './api.js';
 
+
 getData()
   .then((pictures) => {
     renderGallery(pictures);
@@ -14,3 +15,4 @@ getData()
   );
 
 setUserFormSubmit(hideModal);
+
