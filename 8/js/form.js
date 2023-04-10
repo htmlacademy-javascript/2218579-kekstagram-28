@@ -1,6 +1,5 @@
 import {resetScale} from './scale.js';
 import {resetEffects} from './effect.js';
-import {showAlert} from './util.js';
 import {sendData} from './api.js';
 import {isEscapeKey} from './util.js';
 
@@ -40,12 +39,14 @@ const hideModal = () => {
   document.removeEventListener('keydown', onDocumentKeydown);
 };
 
+const getMessageType = () => document.querySelector('.error, .success');
+
 const isTextFieldFocused = () =>
   document.activeElement === hashtagField ||
   document.activeElement === commentField;
 
 function onDocumentKeydown(evt) {
-  if (isEscapeKey(evt) && !isTextFieldFocused()) {
+  if (isEscapeKey(evt) && !isTextFieldFocused() && !getMessageType) {
     evt.preventDefault();
     hideModal();
   }
@@ -81,8 +82,6 @@ pristine.addValidator(
   validateTags,
   TAG_ERROR_TEXT
 );
-
-const getMessageType = () => document.querySelector('.error, .success');
 
 const closeMessage = () => {
   const message = getMessageType();
@@ -134,12 +133,11 @@ const setUserFormSubmit = (onSuccess) => {
 
     const isValid = pristine.validate();
     if (isValid) {
-      openSuccessMessage ();
       sendData(new FormData(evt.target))
         .then(onSuccess)
-        .catch((err) => {
+        .then(openSuccessMessage)
+        .catch(() => {
           openErrorMessage();
-          showAlert(err.message);
         });
     }
   });
