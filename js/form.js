@@ -2,6 +2,7 @@ import {resetScale} from './scale.js';
 import {resetEffects} from './effect.js';
 import {sendData} from './api.js';
 import {isEscapeKey} from './util.js';
+import {uploadUserPicture} from './upload-user-picture.js';
 
 const MAX_HASHTAG_COUNT = 5;
 const VALID_SYMBOL = /^#[a-zа-яё0-9]{1,19}$/i;
@@ -27,6 +28,7 @@ const showModal = () => {
   overlay.classList.remove('hidden');
   body.classList.add('modal-open');
   document.addEventListener('keydown', onDocumentKeydown);
+  uploadUserPicture();
 };
 
 const hideModal = () => {
