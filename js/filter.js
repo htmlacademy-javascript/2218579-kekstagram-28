@@ -5,13 +5,9 @@ const RERENDER_DELAY = 500;
 const RANDOM_PICTURES_COUNT = 10;
 const SORT_NUMBER = 0.5;
 
-const picturesUser = document.querySelector('.pictures');
-
-const resetArrayPicture = () => {
-  Array.from(picturesUser.children).forEach((item) => {
-    if (item.classList.contains('picture')) {
-      item.remove();
-    }
+const deletePictures = () => {
+  document.querySelectorAll('.picture').forEach((item) => {
+    item.remove();
   });
 };
 
@@ -35,15 +31,13 @@ const sortByComments = (pictureA, pictureB) =>
   pictureB.comments.length - pictureA.comments.length;
 
 const filterPictures = (pictures) => {
+  deletePictures();
   switch(currentFilter) {
     case(Filter.RANDOM):
-      resetArrayPicture();
       return pictures.slice().sort(sortRandomly).slice(0,RANDOM_PICTURES_COUNT);
     case(Filter.DISCUSSED):
-      resetArrayPicture();
       return pictures.slice().sort(sortByComments);
     default:
-      resetArrayPicture();
       return pictures;
   }
 };
