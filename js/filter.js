@@ -1,15 +1,9 @@
 import {debounce} from './util.js';
-import {renderThumbnails} from './thumbnail.js';
+import {renderGallery} from './gallery.js';
 
 const RERENDER_DELAY = 500;
 const RANDOM_PICTURES_COUNT = 10;
 const SORT_NUMBER = 0.5;
-
-const deletePictures = () => {
-  document.querySelectorAll('.picture').forEach((item) => {
-    item.remove();
-  });
-};
 
 const Filter = {
   DEFAULT: 'filter-default',
@@ -31,7 +25,6 @@ const sortByComments = (pictureA, pictureB) =>
   pictureB.comments.length - pictureA.comments.length;
 
 const filterPictures = (pictures) => {
-  deletePictures();
   switch(currentFilter) {
     case(Filter.RANDOM):
       return pictures.slice().sort(sortRandomly).slice(0,RANDOM_PICTURES_COUNT);
@@ -42,7 +35,7 @@ const filterPictures = (pictures) => {
   }
 };
 
-const debouncedCreateGallery = debounce(renderThumbnails, RERENDER_DELAY);
+const debouncedCreateGallery = debounce(renderGallery, RERENDER_DELAY);
 
 const setOnFilterClick = (pictures) => {
   filtersContainer.addEventListener('click', (evt) => {

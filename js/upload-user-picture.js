@@ -10,7 +10,9 @@ const uploadUserPicture = () => {
   const validateType = PICTURE_TYPES.some((type) => userPictureName.endsWith(type));
   if (validateType) {
     picturePreview.src = URL.createObjectURL(userPicture);
-    effectsPreview.forEach((effect) => (effect.style.backgroundImage = `url(${picturePreview.src})`));
+    effectsPreview.forEach((effect) => {
+      effect.style.backgroundImage = `url(${picturePreview.src})`;
+    });
   }
 };
 
