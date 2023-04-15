@@ -95,7 +95,7 @@ const onCloseMessage = () => {
   document.removeEventListener('keydown', onMessageKeydown);
 };
 
-export const openErrorMessage = () => {
+const openErrorMessage = () => {
   const error = errorTemplate.cloneNode(true);
   document.body.append(error);
   const errorButton = document.querySelector('.error__button');
@@ -105,7 +105,7 @@ export const openErrorMessage = () => {
   document.addEventListener('keydown', onMessageKeydown);
 };
 
-export const openSuccessMessage = () => {
+const openSuccessMessage = () => {
   const success = successTemplate.cloneNode(true);
   document.body.append(success);
   const successButton = document.querySelector('.success__button');
@@ -115,7 +115,7 @@ export const openSuccessMessage = () => {
   document.addEventListener('keydown', onMessageKeydown);
 };
 
-export function onMessageKeydown (evt) {
+function onMessageKeydown (evt) {
   if (isEscapeKey(evt) && getMessageType()) {
     evt.preventDefault();
     onCloseMessage();
